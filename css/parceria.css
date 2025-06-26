@@ -12,19 +12,19 @@
 
 body {
 background-image: url(../assets/background-codice-loiane.png);
- 
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
 }
-
-
-
 
 header {
     width: 100%;
-
-    background-position: center;
-    background-size: cover;
     position: relative;
 }
+
+
+/* alteracao  */
+
 
 nav {
     display: flex;
@@ -34,18 +34,15 @@ nav {
 }
 
 .logo {
-
-    width: 203px;
+    width: 203px; /* Largura para desktop */
     height: auto;
-
 }
-
-
 
 .nav-links {
     flex: 1;
     text-align: right;
-
+    /* Adicionado transição para o menu lateral */
+    transition: 0.5s;
 }
 
 .nav-links ul li {
@@ -65,43 +62,15 @@ nav {
     content: '';
     width: 0%;
     height: 2px;
-    background: var(--corPrincipal);
     display: block;
     margin: auto;
     transition: 0.5s;
 }
 
+
 .nav-links ul li a:hover::after {
     width: 100%;
 }
-
-.caixa-texto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 90%;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    
-}
-
-
-.caixa-texto h1 {
-    font-size: 80px;
-    margin-top: 20px;
-}
-
-.caixa-texto p {
-    margin: 10px 0 20px;
-    font-size: 30px;
-    color: white;
-}
-
 
 .entrar {
     display: inline-block;
@@ -133,61 +102,174 @@ nav {
     background: transparent;
     position: relative;
     cursor: pointer;
-    
 }
 
 .hero-btn:hover {
-    border: 1px solid var(--corPrincipal);
-    background: #4c1a99;
-    transition: 1s;
+  border: 1px solid var(--corPrincipal);
+  background: #4c1a99;
+  transition: 1s;
 }
+
 
 .caixa-texto {
-  margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 50px; 
 }
+
+.caixa-texto h1 {
+    font-size: 80px;
+    margin-top: 20px;
+}
+
+.caixa-texto p {
+    margin: 10px 0 20px;
+    font-size: 30px;
+    color: white;
+}
+
+/* Esconde os ícones de menu por padrão em telas maiores */
 nav .fa {
     display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-@media(max-width: 1125px) {
-  .parceriah1 {
-    font-size: 30px;
-  }
+/* ---------------------------- Media Queries para Responsividade -------------------------- */
 
+@media (max-width: 1125px) {
+    .caixa-texto h1 {
+        font-size: 60px; /* Ajuste para telas menores */
+    }
 
+    .caixa-texto p {
+        font-size: 24px; /* Ajuste para telas menores */
+    }
 
-  .caixa-texto {
-    margin-top: 200px;
-    width: 90%; /* ou 95%, para caber melhor em telas menores */
-    padding: 0 15px; /* opcional, ajuda a dar respiro nas laterais */
-    
-  }
-
-  .parceriatexto {
-    
-    font-size: 18px;
-    line-height: 1.5;
-  }
-}
-@media(max-width: 768px) {
-  .loianecodice {
-    width: 50vw;
-  }
-  .parceriah1 {
-    font-size: 30px;
-  }
-
-  .caixa-texto {
-    margin-top: 300px;
-    width: 90%; /* ou 95%, para caber melhor em telas menores */
-    padding: 0 15px; /* opcional, ajuda a dar respiro nas laterais */
-  }
-
-  .parceriatexto {
-    
-    font-size: 18px;
-    line-height: 1.5;
-  }
+    .entrar, .hero-btn {
+        padding: 12px 25px;
+        font-size: 22px;
+    }
 }
 
-/* ---------------------------- Parceria -------------------------- */
+@media (max-width: 768px) {
+    .logo {
+        width: 150px; /* Reduz o logo em telas menores */
+    }
+
+    .nav-links ul {
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        text-align: left;
+        padding-top: 20px;
+    }
+
+    .nav-links {
+      position: absolute;
+      background:  #4c1a99;
+      height: 100vh;
+      width: 200px;
+      top: 0;
+      right: -200px; 
+      text-align: left;
+      z-index: 100; 
+      transition: 1s;
+    }
+
+    
+  nav .fa {
+    display: block;
+    color: white;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .nav-links ul {
+    padding: 30px;
+  }
+
+
+    .nav-links ul {
+        display: flex; /* Mostra os links dentro do menu lateral */
+    }
+
+    .nav-links ul li {
+        display: block; /* Faz os itens da lista ocuparem toda a largura */
+        margin: 25px 0;
+        padding-left: 20px;
+    }
+
+    .nav-links ul li a {
+        color: white; /* Garante que os links fiquem visíveis no menu lateral */
+        font-size: 20px;
+    }
+
+    /* Mostra os ícones de hambúrguer e fechar */
+    nav .fa-bars,
+    nav .fa-times {
+        display: block; /* Torna os ícones visíveis */
+    }
+
+    /* Ajuste para o ícone de fechar dentro do menu */
+    .nav-links .fa-times {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+    }
+
+    .caixa-texto {
+        top: 55%; /* Ajuste o top para telas menores */
+        transform: translate(-50%, -50%);
+        margin-top: 0; /* Remova o margin-top fixo se estiver usando top/transform */
+        padding: 0 10px; /* Mais padding para o conteúdo */
+    }
+
+    .caixa-texto h1 {
+        font-size: 40px; /* Reduz o tamanho do título */
+    }
+
+    .caixa-texto p {
+        font-size: 18px; /* Reduz o tamanho do parágrafo */
+    }
+
+    .loianecodice {
+        width: 60vw; /* Ajuste o tamanho da imagem para telas menores */
+        max-width: 300px; /* Garante um tamanho máximo */
+    }
+
+    .entrar, .hero-btn {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caixa-texto h1 {
+        font-size: 30px;
+    }
+
+    .caixa-texto p {
+        font-size: 16px;
+    }
+
+    .entrar, .hero-btn {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+}

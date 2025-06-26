@@ -62,19 +62,8 @@ nav {
   font-size: 18px;
 }
 
-.nav-links ul li a::after {
-  content: '';
-  width: 0%;
-  height: 2px;
-  border: 1px solid var(--corPrincipal); /* Usando variável */
-  background: var(--corPrincipal); /* Usando variável */
-  display: block;
-  margin: auto;
-  transition: 0.5s;
-}
-
 .nav-links ul li a:hover::after {
-  width: 100%;
+   width: 100%; 
 }
 
 .caixa-texto {
