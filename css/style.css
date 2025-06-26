@@ -351,7 +351,8 @@ h3 {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: justify;
+
 }
 
 .card .card-footer {
@@ -476,6 +477,7 @@ h3 {
 }
 
 /*----------------------- Comentários ------------------- */
+
 .comentarios {
   height: 100vh;
   width: 100%;
@@ -491,6 +493,7 @@ h3 {
   width: 100%;
   padding: 50px 0;
   overflow: hidden;
+
 }
 
 .testimonial .image {
@@ -512,7 +515,51 @@ h3 {
 
 .slide p {
   text-align: center;
+  padding: 0 160px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
 }
+
+.slide .quote-icon {
+  font-size: 30px;
+  color: #ff9af5;
+}
+
+.slide .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details .name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.details .job {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .slide p {
+    padding: 0 20px;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination {
+    display: none !important;
+  }
+}
+
 
 
 /* ----------------- FOOTER ----------------------- */
